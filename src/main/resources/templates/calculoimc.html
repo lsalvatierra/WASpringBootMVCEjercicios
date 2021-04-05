@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+</head>
+<body>
+	<nav th:replace="layout::menu"></nav>
+	<div class="card">
+		<div class="card-header badge-danger">CALCULADORA IMC</div>
+		<div class="card-body">
+			<form th:action="@{/calculoimc}" method="post" th:object="${imcform}">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Ingrese su Talla:</label> <input
+						type="number" class="form-control" id="exampleInputEmail1"
+						th:field="*{talla}">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Ingrese su Peso:</label> <input
+						type="number" class="form-control" id="exampleInputPassword1"
+						th:field="*{peso}">
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</div>
+				<div th:if="${visualizar}" class="alert" th:classappend="${colormsgimc}" role="alert">
+					<span th:text="${resultado} ?: ''"></span>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
