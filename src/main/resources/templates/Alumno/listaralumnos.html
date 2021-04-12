@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head">
+<meta charset="UTF-8">
+</head>
+<body>
+	<nav th:replace="layout::menu"></nav>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Nombre</th>
+				<th scope="col">Apellidos</th>
+				<th scope="col">Género</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="alumno :${lstalumnos}">
+				<td th:text="${alumno.nomAlumno}"></td>
+				<td th:text="${alumno.apeAlumno}"></td>
+				<td th:text="${alumno.genAlumno}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -5,19 +5,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import edu.pe.idat.model.LoginForm;
 
 @Controller
 public class LoginController {
 
-	@GetMapping("/login")
+	/*@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView modelView = new ModelAndView();
 		modelView.addObject("loginform", new LoginForm());
 		modelView.addObject("visualizar", false);
 		return modelView;
+	}*/
+	
+	@GetMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("loginform", new LoginForm());
+		model.addAttribute("visualizar", false);
+		return "login";
 	}
 	
 	@PostMapping("/login")
